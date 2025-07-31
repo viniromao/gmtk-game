@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://bp3u8m53xo18j" path="res://scripts/washing_machine_bound.gd" id="1_03ev6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0qpso"]
+radius = 276.002
 
 [node name="WashingMachineBound" type="Area2D"]
-scale = Vector2(20, 20)
 script = ExtResource("1_03ev6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -20,5 +20,5 @@ func spawn():
 		print("obstacle or washing machine not set, obstacle <",obstacle_scene,"> washing_machine_bound <",washing_machine_bound,">")
 		return
 
-	washing_machine_bound.add_obstacle(obstacle_scene, Vector2(300,randf_range(0.0, 200.0)))
+	washing_machine_bound.add_obstacle(obstacle_scene, Vector2(0,randf_range(0.0, -200.0)))
 	

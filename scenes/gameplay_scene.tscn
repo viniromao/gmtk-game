@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://b3xu1fkoptsng"]
 
 [ext_resource type="PackedScene" uid="uid://4v3u2lg7hgr6" path="res://object_scenes/washing_machine_bound.tscn" id="1_01stm"]
-[ext_resource type="Texture2D" uid="uid://cyml7328vcoc6" path="res://textures/washing_machine.webp" id="1_mvhas"]
+[ext_resource type="Texture2D" uid="uid://gao31lwbbk8h" path="res://textures/washing_machine_outer.png" id="1_gtnmq"]
 [ext_resource type="Script" uid="uid://7eqelhigwhrg" path="res://scripts/spawner.gd" id="2_b2a1o"]
 [ext_resource type="PackedScene" uid="uid://cdi65rpewbc03" path="res://object_scenes/obstacle.tscn" id="3_xpbwm"]
 [ext_resource type="Script" uid="uid://cr5fglkg3d4sa" path="res://scripts/camera.gd" id="5_27dq3"]
@@ -31,53 +31,67 @@ shader_parameter/speed = 0.1
 size = Vector2(500, 200)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd025"]
-size = Vector2(545, 184)
+size = Vector2(611, 377)
 
 [node name="GameplayScene" type="Node2D"]
 
-[node name="WashingMachineBG" type="Sprite2D" parent="."]
-position = Vector2(290, 391)
-scale = Vector2(1.77236, 1.75769)
-texture = ExtResource("1_mvhas")
-
 [node name="WashingMachineBound" parent="." instance=ExtResource("1_01stm")]
-position = Vector2(295, 285)
-scale = Vector2(30, 30)
+position = Vector2(11, 86)
 rotation_velocity = 2.0
 
 [node name="Spawner" type="Node2D" parent="."]
-position = Vector2(300, 150)
+position = Vector2(0, -110)
 script = ExtResource("2_b2a1o")
 obstacle_scene = ExtResource("3_xpbwm")
 
 [node name="player" parent="." instance=ExtResource("6_1126i")]
-position = Vector2(130, 347)
+position = Vector2(3.00001, 87)
 scale = Vector2(0.1, 0.1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(306, 390)
+position = Vector2(63, 172)
 script = ExtResource("5_27dq3")
 initial_zoom = Vector2(0.25, 0.25)
 
 [node name="ground" type="StaticBody2D" parent="."]
-position = Vector2(97, 496)
+position = Vector2(-62, 309)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
 position = Vector2(67, 56)
 shape = SubResource("WorldBoundaryShape2D_1126i")
 
+[node name="spray" type="CPUParticles2D" parent="."]
+position = Vector2(204, -105)
+emitting = false
+amount = 80
+direction = Vector2(-1, 0)
+initial_velocity_max = 400.0
+
 [node name="water" type="Area2D" parent="."]
-position = Vector2(295, 540)
+position = Vector2(1, 549)
 script = ExtResource("7_gtnmq")
+default_water_pos = 555.0
+max_water_level = 8.0
 
 [node name="sprite" type="Sprite2D" parent="water"]
 material = SubResource("ShaderMaterial_n2udg")
-scale = Vector2(1, 0.933)
+position = Vector2(4.76837e-07, 0)
+scale = Vector2(1.222, 1.8815)
 texture = SubResource("PlaceholderTexture2D_hvrxh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="water"]
-position = Vector2(22, 2)
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_cd025")
+
+[node name="CycleTimer" type="Timer" parent="water"]
+wait_time = 5.0
+autostart = true
+
+[node name="WashingMachineBG" type="Sprite2D" parent="."]
+position = Vector2(-1, -1)
+scale = Vector2(0.56975, 0.56975)
+texture = ExtResource("1_gtnmq")
 
 [connection signal="body_entered" from="water" to="water" method="_on_body_entered"]
 [connection signal="body_exited" from="water" to="water" method="_on_body_exited"]
+[connection signal="timeout" from="water/CycleTimer" to="water" method="_on_cycle_timer_timeout"]

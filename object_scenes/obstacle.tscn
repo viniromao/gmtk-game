@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://qro32bwxwoxh" path="res://textures/cloth_3.png" id="2_0csld"]
 
 [node name="Obstacle" type="Node2D"]
+scale = Vector2(20, 20)
 script = ExtResource("1_0csld")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

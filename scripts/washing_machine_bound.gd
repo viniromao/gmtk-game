@@ -36,14 +36,14 @@ func check_and_destroy_obstacles():
 		
 		if is_instance_valid(obstacle):
 			var pos = obstacle.global_position
-			if pos.y < 280 and pos.x < 280:
+			if pos.y < 100 and pos.x < 0:
 				#set blur shader
 				var blur = load("res://shaders/blur.gdshader")
 				obstacle.sprite.material = ShaderMaterial.new()
 				obstacle.sprite.material.set("shader", blur)
 				obstacle.state = 1
 				
-			elif pos.y < 280 and pos.x > 280 and obstacle.state:
+			elif pos.y < 100 and pos.x > 0 and obstacle.state:
 				remove_obstacle_sprites(obstacle)
 				obstacle.queue_free()
 
