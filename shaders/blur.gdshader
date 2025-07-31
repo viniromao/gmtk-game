@@ -10,7 +10,7 @@ void vertex(){
 
 float insideUnitSquare(vec2 v) {
     vec2 s = step(vec2(0.0), v) - step(vec2(1.0), v);
-    return s.x * s.y;   
+    return s.x * s.y;
 }
 
 void fragment(){
@@ -24,7 +24,7 @@ void fragment(){
 		inSquare = insideUnitSquare(uv);
 		numSamples += inSquare;
 		COLOR += texture(TEXTURE, uv) * inSquare;
-		
+
 		uv = UV - stepSize * float(i);
 		inSquare = insideUnitSquare(uv);
 		numSamples += inSquare;
