@@ -10,13 +10,15 @@ var cloth_textures: Array[String] = [
 
 @export var target_size: Vector2 = Vector2(2, 2)
 
+#whether to blur or not
+var state: int = 0
+
 func _ready():
 	set_random_cloth_sprite()
 
 func set_random_cloth_sprite():
 	var random_index = randi() % cloth_textures.size()
 	var texture_path = cloth_textures[random_index]
-	
 	var texture = load(texture_path)
 	sprite.texture = texture
 	

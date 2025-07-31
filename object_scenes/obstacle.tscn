@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdi65rpewbc03"]
 
-[ext_resource type="Script" uid="uid://cgcxfvbrm0u0r" path="res://object_scenes/obstacle.gd" id="1_0csld"]
+[ext_resource type="Script" uid="uid://cgcxfvbrm0u0r" path="res://scripts/obstacle.gd" id="1_0csld"]
 [ext_resource type="Texture2D" uid="uid://qro32bwxwoxh" path="res://textures/cloth_3.png" id="2_0csld"]
 
 [node name="Obstacle" type="Node2D"]
