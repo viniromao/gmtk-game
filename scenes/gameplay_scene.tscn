@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3xu1fkoptsng"]
+
+[ext_resource type="PackedScene" uid="uid://4v3u2lg7hgr6" path="res://object_scenes/washing_machine_bound.tscn" id="1_01stm"]
+[ext_resource type="Texture2D" uid="uid://cyml7328vcoc6" path="res://textures/washing_machine.webp" id="1_mvhas"]
+[ext_resource type="Script" uid="uid://7eqelhigwhrg" path="res://scripts/spawner.gd" id="2_b2a1o"]
+[ext_resource type="PackedScene" uid="uid://cdi65rpewbc03" path="res://object_scenes/obstacle.tscn" id="3_xpbwm"]
+[ext_resource type="Script" uid="uid://cr5fglkg3d4sa" path="res://scripts/camera.gd" id="5_27dq3"]
+
+[node name="GameplayScene" type="Node2D"]
+
+[node name="WashingMachineBG" type="Sprite2D" parent="."]
+position = Vector2(290, 391)
+scale = Vector2(1.77236, 1.75769)
+texture = ExtResource("1_mvhas")
+
+[node name="WashingMachineBound" parent="." instance=ExtResource("1_01stm")]
+position = Vector2(300, 300)
+scale = Vector2(30, 30)
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(300, 150)
+script = ExtResource("2_b2a1o")
+obstacle_scene = ExtResource("3_xpbwm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(300, 450)
+script = ExtResource("5_27dq3")
+initial_zoom = Vector2(1.5, 1.5)

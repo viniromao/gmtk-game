@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://4v3u2lg7hgr6"]
+
+[ext_resource type="Script" uid="uid://bp3u8m53xo18j" path="res://scripts/washing_machine_bound.gd" id="1_03ev6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0qpso"]
+
+[node name="WashingMachineBound" type="Area2D"]
+scale = Vector2(20, 20)
+script = ExtResource("1_03ev6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0qpso")
+debug_color = Color(0.924114, 0.239577, 0.351504, 0.42)
+
+[node name="Pivot" type="Node2D" parent="."]
