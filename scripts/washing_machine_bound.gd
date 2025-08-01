@@ -2,11 +2,21 @@ extends Area2D
 
 @export var rotation_velocity: float = 10
 
+
 var obstacles: Array[Node] = []
 var obstacle_sprites: Array[Node2D] = []
 
-func _process(delta: float) -> void:
-	rotation += rotation_velocity * delta
+var paused: bool = false
+var current_rotation_velocity = 0;
+
+func _process(_delta: float) -> void:
+	#slow down and speed up
+	if paused and current_rotation_velocity > 0:
+		current_rotation_velocity -= _delta
+	if !paused and current_rotation_velocity < rotation_velocity:
+		current_rotation_velocity += _delta
+		
+	rotation += current_rotation_velocity * _delta
 	
 	for sprite in obstacle_sprites:
 		if is_instance_valid(sprite):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b3xu1fkoptsng"]
+[gd_scene load_steps=14 format=3 uid="uid://b3xu1fkoptsng"]
 
 [ext_resource type="PackedScene" uid="uid://4v3u2lg7hgr6" path="res://object_scenes/washing_machine_bound.tscn" id="1_01stm"]
 [ext_resource type="Texture2D" uid="uid://gao31lwbbk8h" path="res://textures/washing_machine_outer.png" id="1_gtnmq"]
@@ -8,8 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://rcax08kek7j8" path="res://object_scenes/player.tscn" id="6_1126i"]
 [ext_resource type="Shader" uid="uid://ijgmaspfkgel" path="res://shaders/water.gdshader" id="7_cd025"]
 [ext_resource type="Script" uid="uid://cbtv2f6edfycc" path="res://scripts/water.gd" id="7_gtnmq"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1126i"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gtnmq"]
 
@@ -24,7 +22,7 @@ shader = ExtResource("7_cd025")
 shader_parameter/refraction_map = SubResource("NoiseTexture2D_uyhvn")
 shader_parameter/refraction_stretch = Vector2(1, 1)
 shader_parameter/refraction_strength = 0.01
-shader_parameter/water_tint = Color(0.2, 0.6, 1, 0.1)
+shader_parameter/water_tint = Color(0.2, 0.6, 1, 0.196078)
 shader_parameter/speed = 0.1
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hvrxh"]
@@ -49,16 +47,18 @@ position = Vector2(3.00001, 87)
 scale = Vector2(0.1, 0.1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(63, 172)
+position = Vector2(0, 79)
 script = ExtResource("5_27dq3")
-initial_zoom = Vector2(0.25, 0.25)
+initial_zoom = Vector2(0.5, 0.5)
 
 [node name="ground" type="StaticBody2D" parent="."]
 position = Vector2(-62, 309)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
-position = Vector2(67, 56)
-shape = SubResource("WorldBoundaryShape2D_1126i")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ground"]
+position = Vector2(62, -217)
+rotation = 1.5708
+scale = Vector2(2.62933, 2.62933)
+polygon = PackedVector2Array(-4, -188.667, -34.3, -187.5, -71.6, -177.5, -118, -152, -146.3, -125.5, -168, -96.5, -183.4, -61.5, -191, -25.8, -192, -12.6667, -109.8, -12.5, -98, -52.1, -68, -88.4, -31, -106.6, 9.2, -109.5, 40.5, -100.5, 58.1, -90.5, 88.7, -58.5, 101, -28.5, 104, -12.5, 104, 8, 97, 35.6, 78, 67.3333, 52, 88, 18, 101.4, -20, 102.667, -53.5, 90.5, -82.9, 67.5, -103.3, 33.5, -110.5, -4.5, -192.4, -4.5, -188, 39, -177, 73.3, -159, 105.7, -139, 130, -100, 160.6, -48, 181.1, -16.2, 185.5, 14.6667, 184.667, 61.8, 174.5, 112.3, 146.5, 149.9, 107.5, 172.5, 65.5, 184.4, 12.5, 177, -51.5, 161, -92.1, 141, -121.5, 106, -154.9, 69, -175.4, 29, -186.9)
 
 [node name="spray" type="CPUParticles2D" parent="."]
 position = Vector2(204, -105)

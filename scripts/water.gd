@@ -7,6 +7,7 @@ extends Area2D
 
 @onready var spray = $"../spray"
 @onready var timer = $CycleTimer
+@onready var washing_machine_node = $"../WashingMachineBound"
 
 var water_level: float = 0
 
@@ -16,6 +17,7 @@ var status: int = 2
 func _process(_delta):
 	match status:
 		1:
+			washing_machine_node.paused = false
 			spray.emitting = true
 			water_level += _delta * spray_speed
 			if water_level >= max_water_level:
@@ -28,6 +30,8 @@ func _process(_delta):
 				water_level = 0
 				status = 0
 				timer.start()
+				washing_machine_node.paused = true
+				
 			
 	position.y = default_water_pos - water_level * 30
 
