@@ -37,8 +37,14 @@ func apply_swim_controls(delta: float) -> void:
 
 func enter_water():
 	is_in_water = true
-	velocity *= 0.7  # soften transition
+	velocity *= 0.7 
 
 func exit_water():
 	is_in_water = false
-	velocity.y = 0  # reset vertical momentum
+	velocity.y = 0  
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print(area)
+	if area.is_in_group("obstacles"):
+		area.queue_free()

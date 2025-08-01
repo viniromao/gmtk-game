@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://7eqelhigwhrg" path="res://scripts/spawner.gd" id="2_b2a1o"]
 [ext_resource type="PackedScene" uid="uid://cdi65rpewbc03" path="res://object_scenes/obstacle.tscn" id="3_xpbwm"]
 [ext_resource type="Script" uid="uid://cr5fglkg3d4sa" path="res://scripts/camera.gd" id="5_27dq3"]
-[ext_resource type="PackedScene" uid="uid://rcax08kek7j8" path="res://scenes/player.tscn" id="6_1126i"]
+[ext_resource type="PackedScene" uid="uid://rcax08kek7j8" path="res://object_scenes/player.tscn" id="6_1126i"]
 [ext_resource type="Shader" uid="uid://ijgmaspfkgel" path="res://shaders/water.gdshader" id="7_cd025"]
 [ext_resource type="Script" uid="uid://cbtv2f6edfycc" path="res://scripts/water.gd" id="7_gtnmq"]
 

@@ -16,6 +16,8 @@ func _process(delta: float) -> void:
 
 func add_obstacle(obstacle: PackedScene, world_pos: Vector2):
 	var instance = obstacle.instantiate()
+	instance.name = "Obstacle"
+	instance.add_to_group("obstacles")
 	add_child(instance)
 	instance.global_position = world_pos
 	
