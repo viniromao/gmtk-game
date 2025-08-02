@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvi7ibqe1dpfa"]
+
+[ext_resource type="Texture2D" uid="uid://dig6isklxh6my" path="res://textures/combo.png" id="1_tlgjd"]
+[ext_resource type="Script" uid="uid://roj4j8ui2qgq" path="res://scripts/combo.gd" id="2_j0qe6"]
+
+[node name="Combo" type="Sprite2D"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_tlgjd")
+script = ExtResource("2_j0qe6")

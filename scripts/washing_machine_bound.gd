@@ -6,11 +6,10 @@ extends Area2D
 var obstacles: Array[Node] = []
 var obstacle_sprites: Array[Node2D] = []
 
-var paused: bool = false
+@export var paused: bool = false
 var current_rotation_velocity = 0;
 
 func _process(_delta: float) -> void:
-	#slow down and speed up
 	if paused and current_rotation_velocity > 0:
 		current_rotation_velocity -= _delta
 	if !paused and current_rotation_velocity < rotation_velocity:
@@ -23,7 +22,7 @@ func _process(_delta: float) -> void:
 			sprite.rotation = -rotation
 	
 	check_and_destroy_obstacles()
-
+	
 func add_obstacle(obstacle: PackedScene, world_pos: Vector2):
 	var instance = obstacle.instantiate()
 	instance.name = "Obstacle"

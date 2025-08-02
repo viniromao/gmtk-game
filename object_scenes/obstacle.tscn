@@ -1,7 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdi65rpewbc03"]
 
 [ext_resource type="Script" uid="uid://cgcxfvbrm0u0r" path="res://scripts/obstacle.gd" id="1_0csld"]
-[ext_resource type="Texture2D" uid="uid://qro32bwxwoxh" path="res://textures/cloth_3.png" id="2_0csld"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pcfg2"]
+load_path = "res://.godot/imported/cloth_3.png-293a87ccfb8f5136207d9fdb15dda00b.ctex"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0csld"]
 
@@ -11,7 +13,7 @@ script = ExtResource("1_0csld")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.01, 0.01)
-texture = ExtResource("2_0csld")
+texture = SubResource("CompressedTexture2D_pcfg2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0csld")

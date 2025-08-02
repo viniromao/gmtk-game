@@ -6,9 +6,6 @@ extends Node2D
 
 @onready var washing_machine_bound = $"../WashingMachineBound"
 
-func _ready():
-	spawn()
-
 func _process(delta: float) -> void:
 	spawn_timer += delta
 	if spawn_timer >= spawn_delay:
@@ -20,5 +17,6 @@ func spawn():
 		print("obstacle or washing machine not set, obstacle <",obstacle_scene,"> washing_machine_bound <",washing_machine_bound,">")
 		return
 
-	washing_machine_bound.add_obstacle(obstacle_scene, Vector2(0,randf_range(0.0, -200.0)))
+	if !washing_machine_bound.paused:
+		washing_machine_bound.add_obstacle(obstacle_scene, Vector2(0,randf_range(0.0, -200.0)))
 	

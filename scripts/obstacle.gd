@@ -1,12 +1,14 @@
 extends Node2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@export var cloth_type: AuraTypes.Type = AuraTypes.Type.BLUE
 
-var cloth_textures: Array[String] = [
-	"res://textures/cloth_1.webp",
-	"res://textures/cloth_2.png",
-	"res://textures/cloth_3.png"
+var cloth_textures: Array[Dictionary] = [
+	{"path": "res://textures/cloth_blue.png", "aura": AuraTypes.Type.BLUE},
+	{"path": "res://textures/cloth_green.png", "aura": AuraTypes.Type.GREEN},
+	{"path": "res://textures/cloth_red.png", "aura": AuraTypes.Type.RED}
 ]
+
 @export var target_size: Vector2 = Vector2(2, 2)
 var state: int = 0
 
@@ -15,7 +17,8 @@ func _ready():
 
 func set_random_cloth_sprite():
 	var random_index = randi() % cloth_textures.size()
-	var texture_path = cloth_textures[random_index]
+	var texture_path = cloth_textures[random_index]["path"]
+	cloth_type = cloth_textures[random_index]["aura"]
 	var texture = load(texture_path)
 	sprite.texture = texture
 	
